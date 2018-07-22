@@ -1,5 +1,7 @@
 package com.ae.vo;
 
+import java.util.Map;
+
 public class ProductDetailsVO 
 {
 	private long productCode;
@@ -13,10 +15,43 @@ public class ProductDetailsVO
 	private String featureCode;
 	private int price;
 	private int offerCode;
-	private int available;
+	private int availableCount;
 	private int soldCount;
 	private long reviewCode;
 	
+	public ProductDetailsVO(Map<String, Object> rowMap) 
+	{
+		int productCode = (int)((double)rowMap.get("Product_Code"));
+		String productName = (String) rowMap.get("Product_Name");
+		int productTypeCode = (int)(double) rowMap.get("Product_Type_Code");
+		int productSubTypeCode = (int)(double) rowMap.get("Product_Sub_Type_Code");
+		String productDescription = (String) rowMap.get("Product_Description");
+		String customiationCode = (String) rowMap.get("Customiation_Code");
+		String dimensions = (String) rowMap.get("Dimensions");
+		boolean customizable = Boolean.parseBoolean((String) rowMap.get("Customizable"));
+		String featureCode = (String) rowMap.get("Feature_Code");
+		int price = (int)(double) rowMap.get("Price");
+		int offerCode = (int)(double) rowMap.get("Offer_Code");
+		int availableCount = (int) (double)rowMap.get("Available_Count");
+		int soldCount = (int)(double) rowMap.get("Sold_Count");
+		int reviewCode = (int)(double) rowMap.get("Review_Code");
+
+		setProductCode(productCode);
+		setProductName(productName);
+		setProductTypeCode(productTypeCode);
+		setProductSubTypeCode(productSubTypeCode);
+		setProductDescription(productDescription);
+		setCustomiationCode(customiationCode);
+		setDimensions(dimensions);
+		setCustomizable(customizable);
+		setFeatureCode(featureCode);
+		setPrice(price);
+		setOfferCode(offerCode);
+		setAvailableCount(availableCount);
+		setSoldCount(soldCount);
+		setReviewCode(reviewCode);
+	}
+
 	public long getProductCode() {
 		return productCode;
 	}
@@ -83,11 +118,11 @@ public class ProductDetailsVO
 	public void setOfferCode(int offerCode) {
 		this.offerCode = offerCode;
 	}
-	public int getAvailable() {
-		return available;
+	public int getAvailableCount() {
+		return availableCount;
 	}
-	public void setAvailable(int available) {
-		this.available = available;
+	public void setAvailableCount(int availableCount) {
+		this.availableCount = availableCount;
 	}
 	public int getSoldCount() {
 		return soldCount;
