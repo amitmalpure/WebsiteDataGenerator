@@ -28,7 +28,7 @@ public class ProductDetailsVO
 		String productDescription = (String) rowMap.get("Product_Description");
 		String customiationCode = (String) rowMap.get("Customiation_Code");
 		String dimensions = (String) rowMap.get("Dimensions");
-		boolean customizable = Boolean.parseBoolean((String) rowMap.get("Customizable"));
+		boolean customizable = ((String) rowMap.get("Customizable")).toUpperCase().startsWith("Y") ? true : false;
 		String featureCode = (String) rowMap.get("Feature_Code");
 		int price = (int)(double) rowMap.get("Price");
 		int offerCode = (int)(double) rowMap.get("Offer_Code");

@@ -1,5 +1,7 @@
 package com.ae.vo;
 
+import java.util.Map;
+
 public class OfferVO
 {
 	private int offerCode;
@@ -8,6 +10,21 @@ public class OfferVO
 	private String offerStartDate;
 	private String offerEndDate;
 
+	public OfferVO(Map<String, Object> rowMap) 
+	{
+		int offerCode = (int)((double)rowMap.get("Offer_Code"));
+		String offerName = (String) rowMap.get("Offer_Name");
+		int offerDiscount = (int)(double) rowMap.get("Offer_Discount");
+		String offerStartDate = (String) rowMap.get("Offer_Start-Date");
+		String offerEndDate = (String) rowMap.get("Offer_End-Date");
+
+		setOfferCode(offerCode);
+		setOfferName(offerName);
+		setOfferDiscount(offerDiscount);
+		setOfferStartDate(offerStartDate);
+		setOfferEndDate(offerEndDate);
+	}
+	
 	public int getOfferCode() {
 		return offerCode;
 	}

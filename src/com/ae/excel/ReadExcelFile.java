@@ -70,12 +70,8 @@ public class ReadExcelFile
 
 			}
 
-			workbook.close();
 			return productDetailsVOList;
 
-		} catch (IOException e) 
-		{
-			e.printStackTrace();
 		} catch (EncryptedDocumentException e) 
 		{
 			e.printStackTrace();
@@ -133,10 +129,23 @@ public class ReadExcelFile
 		return value;
 	}
 	
+	public void closeWorkbook()
+	{
+		try 
+		{
+			workbook.close();
+		
+		} catch (IOException e) 
+		{
+			e.printStackTrace();
+		}
+	}
+	
 	public static void main(String[] args)
 	{
 		ReadExcelFile readExcelFile = new ReadExcelFile();
 		List<ProductDetailsVO> productDetailsVOList = readExcelFile.readExcelProductDetailsSheet("Product_Details");
 		System.out.println(productDetailsVOList);
+		readExcelFile.closeWorkbook();
 	}
 }

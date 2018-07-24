@@ -1,5 +1,7 @@
 package com.ae.vo;
 
+import java.util.Map;
+
 public class CustomizationVO
 {
 	private int customizationCode;
@@ -8,6 +10,21 @@ public class CustomizationVO
 	private int customizationCost;
 	private String customizationDesc;
 
+	public CustomizationVO(Map<String, Object> rowMap) 
+	{
+		int customizationCode = (int)((double)rowMap.get("Customization_Code"));
+		String customizationValue = (String) rowMap.get("Customization_Value");
+		int customizationCost = (int)(double) rowMap.get("Customization_Cost");
+		String customizationName = (String) rowMap.get("Customization_Name");
+		String customizationDesc = (String) rowMap.get("Customization_Description");
+
+		setCustomizationCode(customizationCode);
+		setCustomizationValue(customizationValue);
+		setCustomizationName(customizationName);
+		setCustomizationCost(customizationCost);
+		setCustomizationDesc(customizationDesc);
+	}
+	
 	public int getCustomizationCode() {
 		return customizationCode;
 	}

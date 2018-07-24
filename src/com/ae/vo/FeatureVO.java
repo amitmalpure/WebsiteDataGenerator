@@ -1,5 +1,7 @@
 package com.ae.vo;
 
+import java.util.Map;
+
 public class FeatureVO
 {
 	private int featureCode;
@@ -7,35 +9,50 @@ public class FeatureVO
 	private String featureValue;
 	private int featureCost;
 	private String featureDesc;
+	
+	public FeatureVO(Map<String, Object> rowMap) 
+	{
+		int featureCode = (int)((double)rowMap.get("Feature_Code"));
+		String featureValue = (String) rowMap.get("Feature_Value");
+		int featureCost = (int)(double) rowMap.get("Feature_Cost");
+		String featureName = (String) rowMap.get("Feature_Name");
+		String featureDesc = (String) rowMap.get("Feature_Description");
 
-	public int getfeatureCode() {
+		setFeatureCode(featureCode);
+		setFeatureValue(featureValue);
+		setFeatureName(featureName);
+		setFeatureCost(featureCost);
+		setFeatureDesc(featureDesc);
+	}
+
+	public int getFeatureCode() {
 		return featureCode;
 	}
-	public void setfeatureCode(int featureCode) {
+	public void setFeatureCode(int featureCode) {
 		this.featureCode = featureCode;
 	}
-	public String getfeatureName() {
+	public String getFeatureName() {
 		return featureName;
 	}
-	public void setfeatureName(String featureName) {
+	public void setFeatureName(String featureName) {
 		this.featureName = featureName;
 	}
-	public String getfeatureValue() {
+	public String getFeatureValue() {
 		return featureValue;
 	}
-	public void setfeatureValue(String featureValue) {
+	public void setFeatureValue(String featureValue) {
 		this.featureValue = featureValue;
 	}
-	public int getfeatureCost() {
+	public int getFeatureCost() {
 		return featureCost;
 	}
-	public void setfeatureCost(int featureCost) {
+	public void setFeatureCost(int featureCost) {
 		this.featureCost = featureCost;
 	}
-	public String getfeatureDesc() {
+	public String getFeatureDesc() {
 		return featureDesc;
 	}
-	public void setfeatureDesc(String featureEndDate) {
+	public void setFeatureDesc(String featureEndDate) {
 		this.featureDesc = featureEndDate;
 	}
 }
